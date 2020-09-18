@@ -1,0 +1,25 @@
+{
+  "name": "ejercicio8-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node wslib.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanse1/ejercicio8-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanse1/ejercicio8-web/issues"
+  },
+  "homepage": "https://github.com/juanse1/ejercicio8-web#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mkdirp": "^0.5.4",
+    "ws": "^7.3.1"
+  }
+}
