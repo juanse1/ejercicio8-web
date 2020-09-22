@@ -5,14 +5,14 @@ ws.onmessage = (msg) => {
 };
 
 const renderMessages = (data) => {
-  const html = data.map((item) => `<p>${item}</p>`).join(" ");
+  const html = data.map((item) => `<p>${item.message}</p>`).join(" ");
   document.getElementById("messages").innerHTML = html;
 };
 
 const handleSubmit = (evt) => {
   evt.preventDefault();
   const message = document.getElementById("message");
-  ws.send(message.value);
+  ws.send(JSON.stringify({ author: "author predeterminado", message: message.value, ts: 1 + Math.floor(Math.random() * 1000) }));
   message.value = "";
 };
 

@@ -40,6 +40,7 @@ router.post("/", function (req, res, next) {
         author: req.body.author,
         ts: req.body.ts,
     }).then((result) => {
+        ws.sendMessages();
         res.send(result);
     });
 });
@@ -61,6 +62,7 @@ router.put("/:id", (req, res) => {
     Message.update(req.body, {where: { ts: req.params.id}}).then((response) => {
         if (response[0] !== 0) 
         {
+            ws.sendMessages();
             res.send({ message: "Message updated" });
         } 
         else 
@@ -77,7 +79,7 @@ router.delete("/:id", (req, res) => {
             ts: req.params.id,
         },
     }).then((response) => {
-        if (response === 1) res.status(204).send();
+        if (response === 1) {ws.sendMessages(); res.status(204).send();}
         else res.status(404).send({ message: "Message was not found" });
     });
 });
